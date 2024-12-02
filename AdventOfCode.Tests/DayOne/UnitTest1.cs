@@ -15,12 +15,25 @@ public class DistanceCalculatorTests(ITestOutputHelper outputHelper)
     }
     
     [Fact]
-    public void ExampleOne()
+    public void CalculateSimilarityReturnsExpectedValue()
+    {
+        var result = DistanceCalculator.CalculateSimilarity(TestInput.Example);
+        
+        Assert.Equal(31, result);
+    }
+    
+    [Fact]
+    public void StageOne()
     {
         var result = DistanceCalculator.GetDistance(TestInput.One);
-        
-        outputHelper.WriteLine("ExampleOne - {0}", result);
-        
+        outputHelper.WriteLine("Distance - {0}", result);
+    }
+    
+    [Fact]
+    public void StageTwo()
+    {
+        var result = DistanceCalculator.CalculateSimilarity(TestInput.One);
+        outputHelper.WriteLine("SimilarityScore - {0}", result);
     }
 }
 
