@@ -2,7 +2,7 @@ namespace AdventOfCode.Tests.DayTwo;
 
 public static class AnalyserReport
 {
-    public static int Calculate(string data)
+    public static int Calculate(string data, bool useDamper = false)
     {
         var ret = data.Split("\n")
             .Select(row => row.Split(" ").Select(int.Parse).ToArray())

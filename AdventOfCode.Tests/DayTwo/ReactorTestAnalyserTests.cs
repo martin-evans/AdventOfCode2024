@@ -7,10 +7,8 @@ public class ReactorTestAnalyserTests(ITestOutputHelper outputHelper)
     [Fact]
     public void AnalyzeTests()
     {
-        var result = AnalyserReport.Calculate(TestInput.Example);
-        
-        Assert.Equal(2, result);
-
+        Assert.Equal(2, AnalyserReport.Calculate(TestInput.Example, useDamper: false));
+        Assert.Equal(4, AnalyserReport.Calculate(TestInput.Example, useDamper: true));
     }
 
     [Fact]
