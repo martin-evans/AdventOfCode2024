@@ -1,4 +1,4 @@
-﻿namespace AdventOfCode.Tests.DayOne;
+﻿namespace AdventOfCode.Tests.Day1;
 
 public static class DistanceCalculator
 {

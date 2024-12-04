@@ -1,6 +1,6 @@
 using Xunit.Abstractions;
 
-namespace AdventOfCode.Tests.DayTwo;
+namespace AdventOfCode.Tests.Day2;
 
 public class ReactorTestAnalyserTests(ITestOutputHelper outputHelper)
 {

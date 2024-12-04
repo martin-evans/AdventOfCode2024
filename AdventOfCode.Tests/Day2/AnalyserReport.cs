@@ -1,4 +1,4 @@
-namespace AdventOfCode.Tests.DayTwo;
+namespace AdventOfCode.Tests.Day2;
 
 public static class AnalyserReport
 {

@@ -1,17 +1,15 @@
 using System.Text.RegularExpressions;
 
-namespace AdventOfCode.Tests.DayThree;
+namespace AdventOfCode.Tests.Day3;
 
 public static class UnCorrupter
 {
     public static int Calculate(string input)
     {
-        
         var pattern = new Regex(@"mul\((\d+),(\d+)\)");
-        var delimiters = new[] { "mul(", ",", ")" };
-
         var matches = pattern.Matches(input);
         
+        var delimiters = new[] { "mul(", ",", ")" };
         var res = 0;
         
         

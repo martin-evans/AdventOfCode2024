@@ -1,6 +1,6 @@
 using Xunit.Abstractions;
 
-namespace AdventOfCode.Tests.DayOne;
+namespace AdventOfCode.Tests.Day1;
 
 public class DistanceCalculatorTests(ITestOutputHelper outputHelper)
 {
