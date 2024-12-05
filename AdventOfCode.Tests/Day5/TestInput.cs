@@ -1,5 +1,7 @@
+using System.Diagnostics;
 using System.Windows.Markup;
 using Xunit.Abstractions;
+using Xunit.Sdk;
 
 namespace AdventOfCode.Tests.Day5;
 
@@ -17,7 +19,7 @@ public class PrintQueueTests(ITestOutputHelper outputHelper)
     [Fact]
     public void PrintQueueAnalyser_FunctionalCheck()
     {
-        var result = PrintQueueAnalyser.Calculate(TestInput.Example);
+        var result = PrintQueueAnalyser.Calculate(TestInput.Example, outputHelper);
         Assert.Equal(143, result);
     }
 
@@ -25,25 +27,25 @@ public class PrintQueueTests(ITestOutputHelper outputHelper)
     [Fact]
     public void ScenarioOne()
     {
-        var result = PrintQueueAnalyser.Calculate(TestInput.Example);
+        var result = PrintQueueAnalyser.Calculate(TestInput.Input, outputHelper);
         
         outputHelper.WriteLine(result.ToString());
         
-        Assert.True(result > 0);
+        Assert.True(result == 6034);
         
     }
 }
 
 public static class PrintQueueAnalyser
 {
-    public static int Calculate(string example)
+    public static int Calculate(string example, ITestOutputHelper outputHelper)
     {
         var (rules, updates) = Parse(example);
         
-        return updates.Where(update => RulesMet(rules, update)).Sum(update => GetMiddleValueOf(update));
+        return updates.Where(update => RulesMet(rules, update, outputHelper)).Sum(GetMiddleValueOf);
     }
 
-    private static bool RulesMet(List<int[]> rules, int[] update)
+    private static bool RulesMet(List<int[]> rules, int[] update, ITestOutputHelper outputHelper)
     {
 
         for (var i = 0; i < update.Length; i++)
@@ -61,11 +63,7 @@ public static class PrintQueueAnalyser
                     return false;
                 }
             }
-            
-            // if rule broken return false immediately
-            
         }
-
         return true;
 
 
